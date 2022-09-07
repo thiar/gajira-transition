@@ -32,7 +32,7 @@ module.exports = class {
         console.log(`{ id: ${t.id}, name: ${t.name} } transitions issue to '${t.to.name}' status.`)
       })
 
-      return
+      return {status:warning, messange: "Transition not Found"}
     }
 
     console.log(`Selected transition:${JSON.stringify(transitionToApply, null, 4)}`)
@@ -49,6 +49,6 @@ module.exports = class {
     console.log(`Changed ${issueId} status to : ${_.get(transitionedIssue, 'fields.status.name')} .`)
     console.log(`Link to issue: ${this.config.baseUrl}/browse/${issueId}`)
 
-    return {}
+    return {status:success}
   }
 }
